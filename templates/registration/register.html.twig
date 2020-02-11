@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <h1>Inscription</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            {{ form_start(registrationForm) }}
+                {{ form_row(registrationForm.email , {'attr': {'class': 'col-md-6'}}) }}
+                <small id="emailHelp" class="form-text text-muted">Ne communiquez pas vos identifiants.</small>
+                <br/>
+                {{ form_row(registrationForm.lastName, {'attr': {'class': 'col-md-6'}}) }}
+                {{ form_row(registrationForm.firstName, {'attr': {'class': 'col-md-6'}}) }}
+                {{ form_row(registrationForm.plainPassword, {'attr': {'class': 'col-md-6'}}) }}
+                {{ form_row(registrationForm.agreeTerms) }}
+
+                <button class="btn btn-info btn-sm">Inscription</button>
+            {{ form_end(registrationForm) }}
+        </div>
+        <div class="col-6">
+            <img class="rounded-circle img-fluid shadow p-0 mb-10 bg-grey-dark rounded" src="{{asset('images/harmony.jpg')}}" border="10" >
+        </div>
+    </div>
+</div>   
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel Article{% endblock %}
+
+{% block body %}
+    {% if is_granted('ROLE_ADMIN') %}
+    <h1>Creer un nouvel Article</h1>
+
+    {{ include('article/_form.html.twig') }}
+    {% else %}
+
+    <h1> Vous n'avez pas les droits pour cette partie du site </h1>
+    {% endif %}
+
+    <a class="btn btn-info btn-sm" href="{{ path('article_index') }}">retour à la liste</a>
+{% endblock %}

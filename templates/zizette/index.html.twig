@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Espace{% endblock %}
+
+{% block body %}
+    <h1>Bienvenue sur votre espace</h1>
+    {% for article in articles %}
+        <h2>
+        <a href="{{path('article_view', {'id': article.id}) }}">
+        {{article.title | upper}}
+        </a>
+        </h2>
+        <h3>
+            Posté le {{article.createdAt | date("d/m/Y H:i")}}
+        </h3>
+        {#<h4>
+            par {{ article.author}}
+        </h4>#}
+        <fieldset>
+            {{article.content}}
+        </fieldset>
+
+        
+    {% endfor %}
+
+{% endblock %}

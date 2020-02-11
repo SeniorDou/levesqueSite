@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article index{% endblock %}
+
+{% block body %}
+
+    {% if app.user %}
+    <h1>Article index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                {#<th>Id</th>#}
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Creer le</th>
+                <th>Nom Patient</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            {% if app.user.email == article.client.email %}
+            
+            <tr>
+                {#<td>{{ article.id }}</td>#}
+                <td>{{ article.title }}</td>
+                <td>{{ article.content | striptags | slice(0, 10 ) }}...</td>
+                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i') : '' }}</td>
+                <td>
+                    <a class="badge badge-info" href="{{ path('article_show', {'id': article.id}) }}">details</a>
+                </td>
+            </tr>
+            {% elseif is_granted('ROLE_ADMIN') %}
+                <tr>
+                {#<td>{{ article.id }}</td>#}
+                <td>{{ article.title }}</td>
+                <td>{{ article.content | striptags | slice(0, 10 ) }}...</td>
+                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i') : '' }}</td>
+                <td>{{ article.client.firstName }} {{ article.client.lastName }}</td>
+                <td>
+                    <a class="badge badge-info" href="{{ path('article_show', {'id': article.id}) }}">details</a>
+                    <a class="badge badge-secondary" href="{{ path('article_edit', {'id': article.id}) }}">editer</a> 
+                </td>
+            </tr>
+            {% endif %}
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a class="badge badge-success" href="{{ path('article_new') }}">Creer un nouvel article</a>
+        {% endif %}
+    {% else %}
+    <h1 class="text-center">Vous devez être connecter pour voir cette page</h1>
+        <a class="nav-link nav-item flex-sm-fill text-sm-center" href="{{path('app_login')}}">
+            Se connecter
+        </a>
+        <a class="nav-link nav-item flex-sm-fill text-sm-center" href="{{path('app_register')}}">
+            S'inscrire
+        </a>
+    {% endif %}
+
+{% endblock %}
