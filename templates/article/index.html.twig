@@ -23,25 +23,24 @@
             {% if app.user.email == article.client.email %}
             
             <tr>
-                {#<td>{{ article.id }}</td>#}
-                <td>{{ article.title }}</td>
-                <td>{{ article.content | striptags | slice(0, 10 ) }}...</td>
-                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i') : '' }}</td>
-                <td>
-                    <a class="badge badge-info" href="{{ path('article_show', {'id': article.id}) }}">details</a>
-                </td>
-            </tr>
-            {% elseif is_granted('ROLE_ADMIN') %}
-                <tr>
-                {#<td>{{ article.id }}</td>#}
                 <td>{{ article.title }}</td>
                 <td>{{ article.content | striptags | slice(0, 10 ) }}...</td>
                 <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i') : '' }}</td>
                 <td>{{ article.client.firstName }} {{ article.client.lastName }}</td>
                 <td>
                     <a class="badge badge-info" href="{{ path('article_show', {'id': article.id}) }}">details</a>
-                    <a class="badge badge-secondary" href="{{ path('article_edit', {'id': article.id}) }}">editer</a> 
                 </td>
+            </tr>
+            {% elseif is_granted('ROLE_ADMIN') %}
+                <tr>
+                    <td>{{ article.title }}</td>
+                    <td>{{ article.content | striptags | slice(0, 10 ) }}...</td>
+                    <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i') : '' }}</td>
+                    <td>{{ article.client.firstName }} {{ article.client.lastName }}</td>
+                    <td>
+                        <a class="badge badge-info" href="{{ path('article_show', {'id': article.id}) }}">details</a>
+                        <a class="badge badge-secondary" href="{{ path('article_edit', {'id': article.id}) }}">editer</a> 
+                    </td>
             </tr>
             {% endif %}
         {% else %}

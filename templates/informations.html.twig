@@ -4,14 +4,45 @@
 
 {% block body %}
 <div class="container-fluid"> 
+
+    <div class="row">
+        <div class="col-6">
+            <h3> Honoraires </h3>
+            <ul class="font-weight-bold"> Consultation ostéopathique :
+                <li class="font-weight-normal"> Adulte: <ins>60€</ins> </li>
+            </ul>
+            <ul class="font-weight-bold"> Etude de la Flore intestinale :
+                <li class="font-weight-normal">Etude de la flore intestinale + ostéopathie : <ins>100€</ins> </li>
+                <li class="font-weight-normal">Etude de la flore intestinale : <ins>60€</ins> </li>
+                <li class="font-weight-normal">Compléments alimentaires à base de mycélium : <ins>26€</ins> le pot. </li>
+            </ul>
+            <p>Le règlement peut se faire par chèque ou espèces</p>
+        </div>
+        <div class="col-6">
+            <h3>Remboursement</h3>
+            <p>Devant la demande croissante des patients, de nombreuses mutuelles ont
+            décidé de rembourser tout ou une partie du tarif d’une consultation. </p>
+
+            <p>Le montant et les conditions de prise en charge sont cependant différentes
+            d’une mutuelle à l’autre, mais également au sein d’une même mutuelle,
+            d’un contrat à un autre (options choisies etc). </p>
+            <p>Il est donc conseillé à chacun de prendre contact directement avec sa
+            mutuelle afin de se renseigner.</p>
+            <p>A la fin de la séance, il vous sera remis un reçu d&#39;honoraires que vous
+            devrez présenter à votre mutuelle.</p>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-6 col-sm-8">
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2889.3408119027017!2d3.9026539999999987!3d43.599444999999996!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b6af889908ee63%3A0x68bf4940d50291f7!2sCabinet+d'ost%C3%A9opathie+du+Nuage+Montpellier!5e0!3m2!1sfr!2s!4v1421059476102" width="400" height="300" frameborder="0" style="border:0"></iframe>
         </div>
-        <div class="col-md-4 offset-md-2 col-sm-8">
+        <div class="col-md-6  col-sm-8">
+            Page Facebook:<br/>
+            <a href="https://www.facebook.com/osteopathe.lenuage.montpellier" target="_blank&quot;"><img class="w-50" src="{{asset('images/th.jpe')}}" alt="lien facebook"></a>
             <br/>
             Prenez rdv en ligne: <br/><br/>
-            <a href="https://www.1clic1doc.com/s/34000-montpellier-34172/osteopathie/osteopathe-montpellier#book" target="_blank&quot;"><img src="images/logomrs.png"></a>
+            <a href="https://www.1clic1doc.com/s/34000-montpellier-34172/osteopathie/osteopathe-montpellier#book" target="_blank&quot;"><img src="{{asset('images/logomrs.png')}}" alt="lien pour un clic un doc"></a>
         </div>
     </div>
 </div>

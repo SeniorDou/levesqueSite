@@ -1,0 +1,41 @@
+/*#boddy  {
+    margin-bottom: 250px;
+
+.mb-5 {
+    margin-bottom: 300px !important;
+}
+
+}*/
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 220px;
+}
+
+#footer {
+    
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    height: 150px;
+}
+
+#footer > div {
+    margin-right: 0;
+    height: 150px;
+}
+
+.nav-item.active {
+    background-color: rgb(85, 138, 235);
+    border-radius: 6px;
+    color: cornsilk;
+}
+
+.rounded{
+    border-radius: 70px !important;
+    
+}
